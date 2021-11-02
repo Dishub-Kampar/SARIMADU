@@ -36,6 +36,16 @@ function beforeMapLoads(){
 	// if(bootleaf.layerParams.length > 0){
 	// 	bootleaf.layerParams.push(statesConfig.id);
 	// }
+  
+  
+  //2021-11-03 add L.Control.Locate 
+  //src= https://github.com/domoritz/leaflet-locatecontrol
+  bootleaf.locateControl = L.control.locate({
+      strings: {
+          title: "Klik untuk menampilkan lokasi sekarang"
+      }
+  });//.addTo(bootleaf.map);
+
 
 	// Continue to load the map
 	loadMap();
@@ -62,4 +72,10 @@ function afterMapLoads(){
 	bootleaf.leafletGeocoder.on("markgeocode", function(evt){
 		console.log("Coordinates: ", evt.geocode.center.lat, ", ", evt.geocode.center.lng);
 	});
+  
+  
+  bootleaf.locateControl.addTo(bootleaf.map);
+
+  
 }
+
