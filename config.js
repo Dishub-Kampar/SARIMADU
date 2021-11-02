@@ -54,7 +54,7 @@ var config = {
 	},
 
 	"activeTool": "coordinates", //"filterWidget", // options are identify/coordinates/queryWidget
-	"basemaps": ['esriGray','esriImagery', 'esriDarkGray', 'esriStreets', 'OpenStreetMap'],
+	"basemaps": ['OpenStreetMap','esriImagery', 'esriDarkGray', 'esriStreets', 'esriGray'],
 	"bing_key": "",
 	"mapboxKey": "",
 	// "defaultIcon": {
