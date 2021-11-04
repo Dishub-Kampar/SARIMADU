@@ -104,8 +104,10 @@ var config = {
     //"minZoom": 12,
     "url": "./data/halte.geojson",
     "icon": {
-        "iconUrl": "./img/theater.png",
-        "iconSize": [24,28]
+        //"iconUrl": "./img/theater.png",
+        //"iconSize": [24,28]
+        "iconUrl": "./img/bus-30.png",
+        "iconSize": [30,30]
     },
     "style": {
     "stroke": true,
