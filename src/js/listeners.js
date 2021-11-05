@@ -103,6 +103,96 @@ $("#identify-btn").click(function() {
 $("#coordinates-btn").click(function() {
   configureCoordinatesTool();
 });
+$("#gps-btn").click(function() {
+  //
+  bootleaf.activeTool = "GPS";
+  resetSidebar("GPS Tracking"
+    ,"<p><span class='info'>GPS tracking ...</span></p>"
+  );// #sidebarTitle,  #sidebarContents
+  //
+  $("#sidebar").show("slow");
+  switchOffTools();
+  //bootleaf.map.on('click', showMarker);//contoh dari yanglain
+  $("#sidebarContents").html('<span id="gps" class="info">GPS Coordinates</span><div>Waktu: <span id="gpsdate"></span></div><div>Latitude: <span id="gpslatitude"></span></div><div>Longitude: <span id="gpslongitude"></span></div><div>&nbsp;<input type="button" onclick="startTracking()" value="Start Tracking"/><input type="button" onclick="stopTracking()" value="Stop Tracking"/></div>');
+  startTracking();
+  
+  
+});
+
+        var watchId, datasource, userShape;
+
+        function startTracking() {
+            if (!watchId) {
+                //Watch the users position.
+                watchId = navigator.geolocation.watchPosition(function (geoPosition) {
+
+                    //Get the coordinate information from the geoPosition.
+                    var userPosition = [geoPosition.coords.latitude, geoPosition.coords.longitude ];//latlong in Leaflet
+                    
+
+                    //TIP: altitude? in meters, speed? in meters/second and heading? in degrees are also potential properties of geoPosition.coords
+
+                    if (!userShape) {
+                        //Create a shape to show the users position and add it to the data source.
+                        //userShape = new atlas.Shape(new atlas.data.Feature(new atlas.data.Point(userPosition), geoPosition));
+                        userShape = new L.Marker(userPosition).addTo(bootleaf.map);
+                        //datasource.add(userShape);
+                        $.growl.notice({message: "Latitude: "+ geoPosition.coords.latitude+" Longitude: "+ geoPosition.coords.longitude });
+                        console.log("Latitude: "+ geoPosition.coords.latitude+" Longitude: "+ geoPosition.coords.longitude);
+                        $("#gpslongitude").html(geoPosition.coords.longitude);
+                        $("#gpslatitude").html(geoPosition.coords.latitude);
+                        $("#gpsdate").html(new Date());
+                    } else {
+                        //userShape.setCoordinates(userPosition);
+                        userShape.setLatLng(userPosition);
+                        //userShape.setProperties(geoPosition);
+                        $.growl.notice({message: "Latitude: "+ geoPosition.coords.latitude+" Longitude: "+ geoPosition.coords.longitude });
+                        console.log("Latitude: "+ geoPosition.coords.latitude+" Longitude: "+ geoPosition.coords.longitude);
+                        $("#gpslongitude").html(geoPosition.coords.longitude);
+                        $("#gpslatitude").html(geoPosition.coords.latitude);
+                        $("#gpsdate").html(new Date());
+                        
+                    }
+
+                    //Center the map on the users position.
+                    //bootleaf.map.setView({
+                    //    center: userPosition,
+                    //    zoom: 17
+                    //});
+                    bootleaf.map.setView(userPosition,17);
+                    
+                    
+                }, function (error) {
+                    //If an error occurs when trying to access the users position information, display an error message.
+                    switch (error.code) {
+                        case error.PERMISSION_DENIED:
+                            //alert('User denied the request for Geolocation.');
+                            $.growl.error({message:'User denied the request for Geolocation.'});
+                            break;
+                        case error.POSITION_UNAVAILABLE:
+                             $.growl.error({message:'Position information is unavailable.'});
+                            break;
+                        case error.TIMEOUT:
+                             $.growl.error({message:'The request to get user position timed out.'});
+                            break;
+                        case error.UNKNOWN_ERROR:
+                             $.growl.error({message:'An unknown error occurred.'});
+                            break;
+                    }
+                });
+            }
+        }
+
+        function stopTracking() {
+            //Cancel the geolocation updates.
+            navigator.geolocation.clearWatch(watchId);
+
+            //Clear all data from the map.
+            //datasource.clear();
+            userShape.removeFrom(bootleaf.map);//remove the marker
+            userShape = null;
+            watchId = null;
+        }
 
 $("#share-btn").click(function() {
   // This function returns the hostname and parameters, which can be used to generate a unique URL for the current map

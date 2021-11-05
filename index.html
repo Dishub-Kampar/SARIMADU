@@ -121,6 +121,9 @@
                     <a href="#" id="share-btn" class="dropdown-item mapTools" data-tool="share">
                         <i class="fa fa-share"></i>&nbsp;&nbsp;Share map
                     </a>
+                    <a href="#" id="gps-btn" class="dropdown-item mapTools" data-tool="share">
+                        <i class="fa fa-location-arrow"></i>&nbsp;&nbsp;GPS
+                    </a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -311,6 +314,31 @@
                placeholder="Enter the value to filter on">
     </div>
 </script>
+
+
+
+
+<script id="gpsTracking-template" type="text/x-handlebars-template">
+    <div id="frmGPSTracking" class="well well-sm">
+        <div class="form-group">
+            <label for="GPSWidgetLayer">Layer</label>
+            <select id="GPSWidgetLayer" class="form-control">
+                {{#each this}}
+                <option value={{this.id}}>{{this.name}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div id="GPSSection">
+
+        </div>
+        <button id="btnGPSRemoveFilter" class="btn btn-secondary">Remove GPS filter</button>
+        <button id="btnGPSApplyFilter" class="btn btn-warning">Apply GPS filter</button>
+        <p class="btn-secondary" id="filterOutput"><span id="GPSfilterText"></span></p>
+    </div>
+</script>
+
+
+
 
 <!-- required libraries -->
 <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>-->
