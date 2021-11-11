@@ -160,6 +160,8 @@ function startTracking() {
             $("#gpsaccuracy").html(geoPosition.coords.accuracy);
             $("#gpsspeed").html(geoPosition.coords.speed);
             $("#gpsdate").html(new Date());
+            
+            createParseGPS(geoPosition.coords,"UECjcJO1JB");
                 
 //accuracy
 //altitude

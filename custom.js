@@ -103,3 +103,40 @@ Date.createFromMysql = function(mysql_string)
    return result;   
 }
 
+// Initialize Parse
+Parse.initialize("cYlv6OxSL8y2zOQnyQfgVW8ApSGQ0HC8vn4GYZ91", "D8IDsCzCzfG6rK2YleE1hvCk13rI14lbl27RcRwi");
+Parse.serverURL = "https://hebat.b4a.app/";
+
+async function createParseGPS(coords,owner) {
+  // Creates a new Parse GPS object
+  let _myGPS = new Parse.GPS();
+  // Set the input values to the new GPS object
+  _myGPS.set("geopoint", new GeoPoint({latitude: coords.latitude, longitude: coords.longitude}));
+  _myGPS.set("accuracy", coords.accuracy);
+  _myGPS.set("altitude", coords.altitude);
+  _myGPS.set("altitudeAccuracy", coords.altitudeAccuracy);
+  _myGPS.set("heading", coords.heading);
+  _myGPS.set("speed", coords.speed);
+  //_myGPS.set("owner", owner);//UECjcJO1JB
+  _myGPS.set("owner", "UECjcJO1JB");//UECjcJO1JB //force
+  try {
+    // Call the save method, which returns the saved object if successful
+    _myGPS = await _myGPS.save();
+    if (_myGPS !== null) {
+      // Notify the success by getting the attributes from the "User" object, by using the get method (the id attribute needs to be accessed directly, though)
+      $.growl.notice(
+        `New object created with success! ObjectId: ${
+          _myGPS.id
+        }`
+      );
+      console.log(
+        `New object created with success! ObjectId: ${
+          _myGPS.id
+        }`
+      );
+    }
+  } catch (error) {
+    $.growl.error(`Error: ${error.message}`);
+    console.log(`Error: ${error.message}`);
+  }
+}
