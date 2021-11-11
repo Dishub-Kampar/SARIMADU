@@ -125,7 +125,7 @@ async function createParseGPS(coords,owner) {
     if (_myGPS !== null) {
       // Notify the success by getting the attributes from the "User" object, by using the get method (the id attribute needs to be accessed directly, though)
       $.growl.notice(
-        `New object created with success! ObjectId: ${
+        `New PARSE object created with success! ObjectId: ${
           _myGPS.id
         }`
       );

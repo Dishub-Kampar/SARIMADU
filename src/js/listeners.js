@@ -149,7 +149,9 @@ function startTracking() {
                 userShape.setLatLng(userPosition);
                 //userShape.setProperties(geoPosition);
             }
-            $.growl.notice({message: "Latitude: "+ geoPosition.coords.latitude+" Longitude: "+ geoPosition.coords.longitude });
+            
+            //update 2021-11-11 notice nya setelah disimpan di Parse saja
+            //$.growl.notice({message: "Latitude: "+ geoPosition.coords.latitude+" Longitude: "+ geoPosition.coords.longitude });
             console.log("Date(): "+ new Date());
             console.log("Latitude: "+ geoPosition.coords.latitude+" Longitude: "+ geoPosition.coords.longitude);
             console.log("geoPosition.timestamp: "+ geoPosition.timestamp);

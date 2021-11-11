@@ -53,7 +53,7 @@ var config = {
 		}
 	},
 
-	"activeTool": "coordinates", //"filterWidget", // options are identify/coordinates/queryWidget
+	"activeTool": "coordinates", //"", // options are  filterWidget / identify / coordinates / queryWidget
 	"basemaps": ['OpenStreetMap','esriImagery', 'esriDarkGray', 'esriStreets', 'esriGray'],
 	"bing_key": "",
 	"mapboxKey": "",
