@@ -109,7 +109,7 @@ Parse.serverURL = "https://hebat.b4a.app/";
 
 async function createParseGPS(coords,owner) {
   // Creates a new Parse GPS object
-  let _myGPS = new Parse.GPS();
+  let _myGPS = new Parse.Object("GPS");
   // Set the input values to the new GPS object
   _myGPS.set("geopoint", new GeoPoint({latitude: coords.latitude, longitude: coords.longitude}));
   _myGPS.set("accuracy", coords.accuracy);
@@ -117,8 +117,8 @@ async function createParseGPS(coords,owner) {
   _myGPS.set("altitudeAccuracy", coords.altitudeAccuracy);
   _myGPS.set("heading", coords.heading);
   _myGPS.set("speed", coords.speed);
-  //_myGPS.set("owner", owner);//UECjcJO1JB
-  _myGPS.set("owner", "UECjcJO1JB");//UECjcJO1JB //force
+  _myGPS.set("owner", owner);//UECjcJO1JB
+  //_myGPS.set("owner", "UECjcJO1JB");//UECjcJO1JB //force
   try {
     // Call the save method, which returns the saved object if successful
     _myGPS = await _myGPS.save();
