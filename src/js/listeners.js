@@ -135,7 +135,7 @@ function startTracking() {
 
             //Get the coordinate information from the geoPosition.
             var userPosition = [geoPosition.coords.latitude, geoPosition.coords.longitude ];//latlong in Leaflet
-            
+            console.log(JSON.stringify(geoPosition.coords));
 
             //TIP: altitude? in meters, speed? in meters/second and heading? in degrees are also potential properties of geoPosition.coords
 

@@ -111,13 +111,16 @@ async function createParseGPS(coords,owner) {
   // Creates a new Parse GPS object
   let _myGPS = new Parse.Object("GPS");
   // Set the input values to the new GPS object
-  _myGPS.set("geopoint", new GeoPoint({latitude: coords.latitude, longitude: coords.longitude}));
+  _myGPS.set("geopoint", new Parse.GeoPoint({latitude: coords.latitude, longitude: coords.longitude}));
   _myGPS.set("accuracy", coords.accuracy);
   _myGPS.set("altitude", coords.altitude);
   _myGPS.set("altitudeAccuracy", coords.altitudeAccuracy);
   _myGPS.set("heading", coords.heading);
   _myGPS.set("speed", coords.speed);
-  _myGPS.set("owner", owner);//UECjcJO1JB
+  let _user = new Parse.User();
+  _user.id = owner;
+  // error _myGPS.set("owner", new Parse.User("objectID",owner));//UECjcJO1JB
+  _myGPS.set("owner", _user)
   //_myGPS.set("owner", "UECjcJO1JB");//UECjcJO1JB //force
   try {
     // Call the save method, which returns the saved object if successful
