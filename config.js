@@ -2,7 +2,7 @@ var config = {
 	"requireArcGISLogin": false, // Does the user need to log in to ArcGIS Online or ArcGIS Server?
 	"tokenUrl": 'https://www.arcgis.com/sharing/generateToken', // ArcGIS token generation URL
 
-	"title": "HEBAT",
+	"title": "SARIMADU",
 	"start": {
 		"center": [0.33710166666666663,101.14930333333332],// koordinat SARIMADU dari Yuris
 		"zoom": 12,
