@@ -11,7 +11,7 @@ var config = {
 	},
 	"about": {
 		"title": "SARIMADU",
-		"contents": "<h1>SARIMADU</h1><p>Sistem Area Rute Integrasi Masyarakat, Aparatur dan Dunia Usaha</p><img src='./img/logo.png' class='img-rounded' alt='SARIMADU'>"
+		"contents": "<h1>SARIMADU</h1><p>Sistem Area Rute Integrasi Masyarakat, Aparatur dan Dunia Usaha</p><img src='./img/logo.png' class='img-rounded' style='width:300px;' alt='SARIMADU'>"
 	},
 	"controls": {
 		"zoom": {
