@@ -5,7 +5,7 @@ var config = {
 	"title": "SARIMADU",
 	"start": {
 		"center": [0.33710166666666663,101.14930333333332],// koordinat SARIMADU dari Yuris
-		"zoom": 12,
+		"zoom": 16,
 		"attributionControl": false,
 		"zoomControl": false
 	},
