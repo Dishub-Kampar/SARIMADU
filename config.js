@@ -54,6 +54,8 @@ var config = {
 	},
 
 	"activeTool": "coordinates", //"", // options are  filterWidget / identify / coordinates / queryWidget
+  //all basemaps are listed on README.md
+  //
 	"basemaps": ['OpenStreetMap','esriImagery', 'esriDarkGray', 'esriStreets', 'esriGray'],
 	"bing_key": "",
 	"mapboxKey": "",
