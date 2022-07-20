@@ -4,14 +4,14 @@ var config = {
 
 	"title": "HEBAT",
 	"start": {
-		"center": [0.366,101.021],
+		"center": [0.33710166666666663,101.14930333333332],// koordinat SARIMADU dari Yuris
 		"zoom": 12,
 		"attributionControl": false,
 		"zoomControl": false
 	},
 	"about": {
-		"title": "HEBAT",
-		"contents": "<h1>Hemat Energi BBM Aset Transportasi</h1><p>This is an open-source version of the excellent <a href='https://github.com/bmcbride/bootleaf'>Bootleaf map </a>started by Bryan McBride.</p><p>It's designed for rapid web map development. See <a href='https://github.com/iag-geo/bootleaf'>https://github.com/iag-geo/bootleaf</a>.</p><p></p>"
+		"title": "SARIMADU",
+		"contents": "<h1>SARIMADU</h1><p>Sistem Area Rute Integrasi Masyarakat, Aparatur dan Dunia Usaha</p>"
 	},
 	"controls": {
 		"zoom": {
